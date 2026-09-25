@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Estrés Hídrico en Plantas</title>
+    <meta name="description" content="Sistema de monitoreo de plantas con Arduino">
+    <link rel="icon" href="icono.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🌱 BioTech Arduino</div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="calendario2.html">Calendario</a></li>
+            <li><a href="#funcionamiento">Funcionamiento</a></li>
+            <li><a href="#materiales">Materiales</a></li>
+            <li><a href="#conexiones">Conexiones</a></li>
+            <li><a href="#simulador">Simulador</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Detector de Estrés Hídrico en Plantas</h1>
+            <p>Prevención de daños mediante alertas tempranas y monitoreo inteligente.</p>
+            <div class="team">
+                <strong>Integrantes:</strong> Bianchi Matteo, Fredes Bruno, Villalobos Jonathan, Newbery Guillermo.
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="funcionamiento" class="section card">
+            <h2>¿Cómo funciona?</h2>
+            <p>Las plantas generan pequeñas señales eléctricas cuando están bajo estrés, comúnmente por falta de agua o factores ambientales. Como el Arduino no puede detectar esas señales directamente, se utiliza un módulo <strong>AD8232</strong>, que las amplifica y filtra para que el Arduino pueda analizarlas. Cuando el sistema detecta cambios compatibles con estrés hídrico, enciende un LED como aviso.</p>
+        </section>
+
+        <section id="materiales" class="section">
+            <h2>Materiales y Costos</h2>
+            <div class="grid-materiales">
+                <div class="material-card"><h3>Arduino Nano</h3><p class="price">$8.000</p></div>
+                <div class="material-card"><h3>Módulo AD8232</h3><p class="price">$21.000 - $27.000</p></div>
+                <div class="material-card"><h3>LED rojo 5 mm</h3><p class="price">$90 - $120</p></div>
+                <div class="material-card"><h3>Resistencia 220 Ω</h3><p class="price">$90 - $100</p></div>
+                <div class="material-card"><h3>Cables Dupont (40 u.)</h3><p class="price">$2.900 - $3.100</p></div>
+                <div class="material-card"><h3>Alfileres (caja)</h3><p class="price">Desde $1.200</p></div>
+            </div>
+            <div class="total-box">
+                <h3>Costo total aproximado: $33.000 a $40.000</h3>
+                <p>Estimado para una maqueta o prototipo escolar.</p>
+            </div>
+        </section>
+
+        <section id="conexiones" class="section grid-two-cols">
+            <div class="card">
+                <h2>Conexiones Arduino (AD8232)</h2>
+                <ul class="list-tech">
+                    <li><strong>GND</strong> &rarr; GND</li>
+                    <li><strong>3.3V</strong> &rarr; 3.3V</li>
+                    <li><strong>OUTPUT</strong> &rarr; A0</li>
+                    <li><strong>LO−</strong> &rarr; Pin 11</li>
+                    <li><strong>LO+</strong> &rarr; Pin 10</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Ubicación de Electrodos</h2>
+                <ul class="list-tech">
+                    <li><span class="dot yellow"></span> <strong>Amarillo:</strong> Tallo o hoja.</li>
+                    <li><span class="dot red"></span> <strong>Rojo:</strong> Centímetros debajo del amarillo.</li>
+                    <li><span class="dot green"></span> <strong>Verde:</strong> Tierra húmeda de la maceta.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="simulador" class="section card simulator-section">
+            <h2>Simulador Interactivo de Estrés</h2>
+            <p>Interactúa con los controles para simular las lecturas analógicas del módulo AD8232 en el Arduino.</p>
+            <div class="simulator-controls">
+                <button id="btn-humedo" class="btn active">Suelo Húmedo (Normal)</button>
+                <button id="btn-seco" class="btn">Suelo Seco (Estrés)</button>
+            </div>
+            <div class="visualizer">
+                <div class="plant-status">
+                    <span id="plant-emoji">🌿</span>
+                    <p id="status-text">Planta Saludable</p>
+                </div>
+                <div class="led-indicator">
+                    <div id="led" class="led-off"></div>
+                    <p>LED Alerta</p>
+                </div>
+            </div>
+    </section>
+
+    <section id="consejos" class="section card">
+        <h2>Consejos de Riego</h2>
+        <p>Usa los datos del detector para optimizar el agua: riega temprano por la mañana o al atardecer para evitar la evaporación rápida.</p>
+    </section>
+</main>
+
+<footer>
